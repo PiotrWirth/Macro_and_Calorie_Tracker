@@ -16,27 +16,58 @@
                 <form method="POST">
                     <div class='form-group row'>
                         {% csrf_token %}
-                        <label class='col-md-2'>
-                            Select Food to Add
-                        </label>
+                        <label class='col-md-3'>
+                            <h4>Select Food to Add</h4>
+                        </label><br>
                         <select class='col-md-6 form-control' name="food_consumed" id="food_consumed">
                             {% for food in foods %}
                                 <option value="{{food.name}}">{{food.name}}</option>
                             {% endfor %}
                         </select>
-                        <button class='btn btn-success' type='submit'>Add</button>
+                        <br><button class='btn btn-success' type='submit'>Add</button>
                     </div>
                 </form>
             </div>
-        </div>
+        </div><br>
+        <div class='row'>
+            <div class='col-md-6'>
+                <div>
+                    <h4>Today's Consumption</h4>
+                </div>
 
+                <table id='table' class='table table-striped table-primary'>
+                    <tr>
+                        <th>Food item</th>
+                        <th>Weight(gm)</th>
+                        <th>Carbs(gm)</th>
+                        <th>Protein(gm)</th>
+                        <th>Fats(gm)</th>
+                        <th>Calories(Kcal)</th>
+                        
+                    </tr>
+                    {% for c in consumed_food %}
+                        <tr>
+                            <td>{{c.food_consumed.name}}</td>
+                            <td>{{c.food_consumed.weight}}</td>
+                            <td>{{c.food_consumed.carbs}}</td>
+                            <td>{{c.food_consumed.protein}}</td>
+                            <td>{{c.food_consumed.fats}} </td>
+                            <td>{{c.food_consumed.calories}}</td>
+                        </tr>
+                    {% endfor %}
+                    
+                </table>
+            </div>
+            <div class='col-md-5 offset-1'>
+
+            </div>
+        </div>
 
     </div>
     
 
-    {% for c in consumed_food %}
-        {{c.food_consumed.name}} --> {{c.food_consumed.carbs}} --> {{c.food_consumed.protein}} --> {{c.food_consumed.fats}}  --> {{c.food_consumed.calories}} <br>
     
-    {% endfor %}
+
+    
 </body>
 </html>

@@ -13,7 +13,7 @@ def index(request):
         consume = Consume(user=user,food_consumed=consume)
         consume.save()
         foods = Food.objects.all()
-        return HttpResponseRedirect('/index/')
+        return HttpResponseRedirect('/')
     else:
         foods = Food.objects.all()
     consumed_food = Consume.objects.filter(user=request.user)
