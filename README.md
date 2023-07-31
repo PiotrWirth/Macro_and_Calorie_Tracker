@@ -2,8 +2,6 @@
 
 Welcome to my macro and calorie tracker project.
 
-To properly use this project you have to change the path for python in pyvenv.cfg to use the python virtual enviroment.
-
 This is a Django 4.1.4 project.
 
 #About
